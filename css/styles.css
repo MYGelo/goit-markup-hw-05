@@ -10,6 +10,8 @@
 
   --card-border-color: #eeeeee;
   --hero-bg-hover: #188ce8;
+  --accent-color-bg-card: rgba(33, 150, 243, 0.9);
+  --cubic-bezier: cubic-bezier(0.4, 0, 0.2, 1);
 }
 body {
   color: var(--main-color);
@@ -102,6 +104,8 @@ p {
 .nav-main {
   display: flex;
   align-items: center;
+  /* padding-top: 32px;
+  padding-bottom: 31px; */
 }
 
 .nav {
@@ -117,16 +121,21 @@ p {
 
 .nav-box {
   display: flex;
-  padding-top: 32px;
-  padding-bottom: 31px;
+  /* padding-top: 32px;
+  padding-bottom: 31px; */
   padding-left: 0;
   padding-right: 0;
   margin: 0;
-  /* margin-left: 93px; */
 }
+.nav-box-item {
+  padding-top: 32px;
+  padding-bottom: 31px;
+}
+
 .nav-box .item + .item {
   margin-left: 50px;
 }
+
 .nav-links {
   display: inline-flex;
   margin-left: auto;
@@ -140,7 +149,10 @@ p {
   list-style: none;
 }
 .nav-main .link {
+  position: relative;
   color: var(--main-color);
+
+  padding-bottom: 31px;
 
   font-weight: 500;
   font-size: 14px;
@@ -152,11 +164,24 @@ p {
 .nav-main .link:hover,
 .nav-main .link:focus {
   color: var(--accent-color);
+  transition: transform 250ms var(--cubic-bezier);
 }
 .nav-main .link.current {
   color: var(--accent-color);
 }
 
+.link.current::after {
+  content: '';
+
+  position: absolute;
+  bottom: -1px;
+  display: block;
+  width: 109%;
+  transform: translate(-4.5%, -4.5%);
+  height: 4px;
+
+  background: var(--accent-color);
+}
 /* contact`s*/
 
 .nav-contact {
@@ -179,14 +204,12 @@ p {
   height: 16px; */
   margin-right: 10px;
 }
-/* .contact-icon:hover {
-  
-} */
 
 .nav-contact:hover,
 .nav-contact:focus {
   color: var(--accent-color);
   fill: var(--accent-color);
+  transition: transform 250ms var(--cubic-bezier);
 }
 
 /* hero*/
@@ -250,6 +273,7 @@ p {
   color: var(--second-color);
   background-color: var(--accent-color);
   border-color: var(--accent-color);
+  transition: transform 250ms var(--cubic-bezier);
 }
 .button.second {
   padding: 6px 22px 6px 22px;
@@ -263,6 +287,7 @@ p {
   color: var(--primery-white-color);
   background-color: var(--accent-color);
   border-color: var(--accent-color);
+  transition: transform 250ms var(--cubic-bezier);
 }
 
 .herobt {
@@ -287,6 +312,7 @@ p {
 .herobt:focus {
   background: var(--hero-bg-hover);
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+  transition: transform 250ms var(--cubic-bezier);
 }
 /* portfolio */
 .section-portfolio {
@@ -320,16 +346,7 @@ p {
 
   letter-spacing: 0.06em;
 }
-.portfolio-link {
-  margin: 0;
 
-  text-align: left;
-  text-decoration: none;
-
-  width: 370px;
-  height: 404px;
-  background: #ffffff;
-}
 .content-portfolio .item {
   width: calc((100% - 30 * 2) / 3);
   margin-right: 30px;
@@ -352,7 +369,17 @@ p {
 .item img {
   display: block;
 }
-.portfolio-link p {
+.portfolio-link {
+  margin: 0;
+
+  text-align: left;
+  text-decoration: none;
+
+  width: 370px;
+  height: 404px;
+  background: #ffffff;
+}
+.portfolio-link-text {
   color: var(--second-color);
   font-size: 16px;
   line-height: 1.88;
@@ -360,10 +387,40 @@ p {
 .portfolio-link h2 {
   margin-bottom: 4px;
 }
-.portfolio-link-hover:hover,
-.portfolio-link-hover:focus {
+.portfolio-link-hover:hover {
   box-shadow: 1px 4px 6px 0px rgba(0, 0, 0, 0.16), 0px 4px 4px 0px rgba(0, 0, 0, 0.06),
     0px 1px 1px 0px rgba(0, 0, 0, 0.12);
+  transition: transform 250ms var(--cubic-bezier);
+}
+.portfolio-card-overlay {
+  position: relative;
+  overflow: hidden;
+}
+
+.portfolio-card-overlay:hover .overlay {
+  transform: translatex(0);
+  transition: transform 250ms var(--cubic-bezier);
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 63px 24px;
+  background: var(--accent-color-bg-card);
+  color: var(--primery-white-color);
+
+  font-family: Roboto;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 28px;
+  letter-spacing: 0.03em;
+  text-align: left;
+
+  transform: translatey(100%);
+  transition: transform 250ms var(--cubic-bezier);
 }
 
 /* about us */
@@ -520,6 +577,7 @@ p {
 .social-links-us:focus {
   fill: var(--primery-white-color);
   background-color: var(--accent-color);
+  transition: transform 250ms var(--cubic-bezier);
 }
 .social-list-us .item + .item {
   margin-left: 10px;
@@ -562,6 +620,7 @@ p {
 .social-links:focus {
   fill: var(--primery-white-color);
   background-color: var(--accent-color);
+  transition: transform 250ms var(--cubic-bezier);
 }
 .social-list {
   display: flex;
@@ -598,10 +657,12 @@ p {
 .address-contact:hover,
 .address-contact:focus {
   color: var(--accent-color);
+  transition: transform 250ms var(--cubic-bezier);
 }
 .address-link:hover,
 .address-link:focus {
   color: var(--accent-color);
+  transition: transform 250ms var(--cubic-bezier);
 }
 .address-footer {
   padding: 0;
@@ -671,6 +732,7 @@ p {
 .client-link:focus {
   fill: var(--accent-color);
   border: 1px solid var(--accent-color);
+  transition: transform 250ms var(--cubic-bezier);
 }
 .social-padding {
   padding-top: 12px;
@@ -683,4 +745,34 @@ p {
   letter-spacing: 0.03em;
 
   margin-bottom: 50px;
+}
+
+/* TEST */
+.backdrop {
+  position: fixed;
+
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  background-color: rgba(0, 0, 0, 0.2);
+}
+.is-hidden {
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 528px;
+  height: 581px;
+  background-color: var(--primery-white-color);
+  box-shadow: 0px 1px 3px rgb(0 0 0 / 12%), 0px 1px 1px rgb(0 0 0 / 14%),
+    0px 2px 1px rgb(0 0 0 / 20%);
+  border-radius: 4px;
+  transform: translate(-50%, -50%);
+  transition: transform 250ms var(--transition-cubic);
 }
