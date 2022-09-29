@@ -316,20 +316,19 @@ p {
 }
 .button-modal {
   position: absolute;
-  top: 0;
-  left: 100%;
-
-  padding: 0;
-  line-height: 0;
-  border-radius: 50%;
-  transform: translate(-100%);
-
   background: white;
   border: 0;
+  padding: 0;
+  line-height: 0;
+
+  top: 8px;
+  right: 8px;
 }
 .button-modal-svg {
   height: 30px;
   width: 30px;
+
+  border-radius: 50%;
 }
 /* portfolio */
 .section-portfolio {
