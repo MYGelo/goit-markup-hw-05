@@ -474,8 +474,44 @@ p {
 /* What are we doing */
 .wawd {
   text-align: center;
-  /* margin-left: 215px;
-  margin-right: 215px; */
+  position: relative;
+}
+
+.wawd-card {
+  position: relative;
+}
+.wawd-card-item {
+  position: relative;
+}
+.wawd-card::after {
+  content: '';
+  position: absolute;
+
+  display: block;
+  width: 100%;
+
+  bottom: 0;
+
+  height: 70px;
+  background: rgb(47, 48, 58);
+  opacity: 0.8;
+}
+.wawd-text {
+  position: absolute;
+
+  font-family: Roboto;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 16px;
+  letter-spacing: 0.03em;
+  text-align: center;
+
+  top: 88%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 1;
+
+  color: var(--primery-white-color);
 }
 .wawd-padding {
   padding-top: 0;
