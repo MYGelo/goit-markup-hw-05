@@ -314,6 +314,23 @@ p {
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
   transition: transform 250ms var(--cubic-bezier);
 }
+.button-modal {
+  position: absolute;
+  top: 0;
+  left: 100%;
+
+  padding: 0;
+  line-height: 0;
+  border-radius: 50%;
+  transform: translate(-100%);
+
+  background: white;
+  border: 0;
+}
+.button-modal-svg {
+  height: 30px;
+  width: 30px;
+}
 /* portfolio */
 .section-portfolio {
   text-align: center;
@@ -474,11 +491,9 @@ p {
 /* What are we doing */
 .wawd {
   text-align: center;
-  position: relative;
 }
 
 .wawd-card {
-  position: relative;
 }
 .wawd-card-item {
   position: relative;
@@ -498,6 +513,8 @@ p {
 }
 .wawd-text {
   position: absolute;
+
+  text-transform: uppercase;
 
   font-family: Roboto;
   font-size: 14px;
@@ -786,7 +803,8 @@ p {
 /* TEST */
 .backdrop {
   position: fixed;
-
+  height: 100%;
+  width: 100%;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -800,7 +818,7 @@ p {
 }
 
 .modal {
-  position: absolute;
+  position: fixed;
   top: 50%;
   left: 50%;
   width: 528px;
@@ -811,4 +829,7 @@ p {
   border-radius: 4px;
   transform: translate(-50%, -50%);
   transition: transform 250ms var(--transition-cubic);
+}
+.modal-text {
+  padding: 45px;
 }
