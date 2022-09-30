@@ -168,6 +168,7 @@ p {
 }
 .nav-main .link.current {
   color: var(--accent-color);
+  transition: transform 250ms var(--cubic-bezier);
 }
 
 .link.current::after {
@@ -179,6 +180,7 @@ p {
   width: 109%;
   transform: translate(-4.5%, -4.5%);
   height: 4px;
+  border-radius: 2px;
 
   background: var(--accent-color);
 }
